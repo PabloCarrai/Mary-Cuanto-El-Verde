@@ -1,8 +1,18 @@
-from .buchon import enviarMensajes as em
+import asyncio
+import os
+from dotenv import load_dotenv
+from buchon import enviarMensajes
 
-def main():
-    pass
+#   Cargo las variables del archivo .env
+load_dotenv()
+
+
+async def main(mensaje):
+    #  Asigno los valores de las variables del .env a una variable interna
+    token = os.environ.get("TOKEN")
+    chat = os.environ.get("ID")
+    await enviarMensajes(token=token, chat=chat, mensaje=mensaje)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main("Que ganas de comerme una pizza"))
