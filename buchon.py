@@ -15,7 +15,7 @@ def enviarMensajes(token, chat, mensaje):
     :param mensaje: Tu mensaje a enviar
     """
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    parametros = {"chat": chat, "mensaje": mensaje, "parse_mode": "Markdown"}
+    parametros = {"chat": chat, "mensaje": mensaje}
     try:
         response = requests.get(url, params=parametros)
         response.raise_for_status()
@@ -28,3 +28,4 @@ def enviarMensajes(token, chat, mensaje):
 #  Asigno los valores de las variables del .env a una variable interna
 token = os.environ.get("TOKEN")
 chat = os.environ.get("CHAT")
+enviarMensajes(token,chat,"Putooooo")
