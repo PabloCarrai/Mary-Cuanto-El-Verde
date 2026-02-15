@@ -2,6 +2,7 @@ import asyncio
 import os
 from dotenv import load_dotenv
 from buchon import enviarMensajes
+from mary import cotizacion_Blue as cb
 
 #   Cargo las variables del archivo .env
 load_dotenv()
@@ -15,4 +16,4 @@ async def main(mensaje):
 
 
 if __name__ == "__main__":
-    asyncio.run(main("Que ganas de comerme una pizza"))
+    asyncio.run(main(cb()))
